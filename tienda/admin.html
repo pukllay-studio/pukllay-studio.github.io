@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es-PE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self' https://*.supabase.co; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Editor de la tienda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<header class="ed-barra">
+  <div class="ed-barra__marca"><strong id="ed-nombre">Editor</strong><span class="ed-modo" id="ed-modo">Modo local</span></div>
+  <div class="ed-barra__acciones">
+    <span class="ed-estado" id="ed-estado" role="status" aria-live="polite"></span>
+    <button type="button" class="ed-boton ed-boton--claro ed-solo-movil" id="ed-ver-vista" aria-pressed="false">Vista previa</button>
+    <button type="button" class="ed-boton ed-boton--claro" id="ed-descartar">Descartar cambios</button>
+    <button type="button" class="ed-boton" id="ed-guardar">Guardar</button>
+  </div>
+</header>
+<div class="ed-cuerpo">
+  <nav class="ed-menu" aria-label="Secciones del editor" id="ed-menu"></nav>
+  <main class="ed-panel" id="ed-panel" tabindex="-1"></main>
+  <section class="ed-vista" aria-label="Vista previa">
+    <div class="ed-vista__barra">
+      <span>Vista previa</span>
+      <div class="ed-segmento" role="group" aria-label="Tamaño de la vista previa">
+        <button type="button" data-ancho="escritorio" aria-pressed="true">Escritorio</button>
+        <button type="button" data-ancho="celular" aria-pressed="false">Celular</button>
+      </div>
+      <a class="ed-enlace" href="index.html" target="_blank" rel="noopener">Abrir tienda</a>
+    </div>
+    <div class="ed-vista__marco" id="ed-marco"><iframe id="ed-iframe" src="index.html" title="Vista previa de la tienda"></iframe></div>
+  </section>
+</div>
+<div class="ed-aviso" id="ed-aviso" role="alert" hidden></div>
+<script src="js/config.js"></script>
+<script src="js/catalogo.js"></script>
+<script src="js/temas.js"></script>
+<script src="js/zip.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

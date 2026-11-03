@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es-PE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!--CSP--><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"><!--/CSP-->
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>DANZAAURA · Ropa y zapatillas de ballet</title>
+<meta name="description" content="DANZAAURA: bodies, pantys, faldas de tul y zapatillas de ballet para niñas y adultas. Envíos a todo el Perú en 1 a 4 días hábiles.">
+<meta property="og:title" content="DANZAAURA · Ropa y zapatillas de ballet">
+<meta property="og:description" content="Ropa y zapatillas de ballet para niñas y adultas, con envío a todo el Perú.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_PE">
+<meta property="og:image" content="img/bailarina-estudio.webp">
+<link rel="icon" href="img/logo.png">
+<meta name="theme-color" content="#f1ede6">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+<a class="saltar" href="#app">Saltar al contenido</a>
+<div class="anuncios" id="anuncios" role="note"></div>
+<header class="barra">
+  <a class="barra__marca" data-ir href="?ver=inicio" aria-label="DANZAAURA, inicio"><img src="img/logo.webp" width="240" height="172" alt=""><span>DANZAAURA</span></a>
+  <button type="button" class="barra__menu" id="boton-menu" aria-expanded="false" aria-controls="panel-menu">Menú</button>
+  <div class="barra__panel" id="panel-menu">
+    <nav class="barra__nav" id="nav-principal" aria-label="Categorías"></nav>
+    <form class="buscador" id="buscador" role="search">
+      <label class="oculto" for="q">Buscar productos</label>
+      <input id="q" name="q" type="search" placeholder="Buscar: body, talla 8, rosado…" maxlength="60" autocomplete="off">
+    </form>
+  </div>
+  <div class="barra__iconos">
+    <a data-ir href="?ver=favoritos" class="icono" aria-label="Favoritos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-9.2-9A5 5 0 0 1 12 6a5 5 0 0 1 9.2 5c-2.2 4.6-9.2 9-9.2 9z"/></svg><span class="burbuja" data-favs hidden></span></a>
+    <a data-ir href="?ver=carrito" class="icono" id="abrir-cajon" aria-label="Carrito"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="burbuja" data-cuenta hidden></span></a>
+  </div>
+</header>
+<main id="app" tabindex="-1"><p class="cargando">Cargando la tienda…</p></main>
+<footer class="pie" id="pie-marca"></footer>
+<div class="aviso" id="aviso" role="status" hidden></div>
+<dialog class="cajon" id="cajon" aria-labelledby="t-cajon">
+  <div class="cajon__cabeza"><h2 id="t-cajon">Tu carrito</h2><button type="button" class="cajon__cerrar" data-cerrar-cajon aria-label="Cerrar carrito"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="cajon__cuerpo" id="cajon-cuerpo"></div>
+</dialog>
+<a class="wa-flotante" id="wa-flotante" href="https://wa.me/51912443287" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c.3 2.2 2.3 4.2 4.5 4.5l1-1.2 1.8.8c-.2 1-1 1.7-2 1.7A5.8 5.8 0 0 1 8.5 9.5c0-1 .7-1.8 1.7-2l.8 1.8z"/></svg><span>WhatsApp</span></a>
+<noscript><p class="sin-js">Activa JavaScript para usar la tienda, o escríbenos por WhatsApp al +51 912 443 287.</p></noscript>
+<script src="js/config.js"></script>
+<script src="js/catalogo.js"></script>
+<script src="js/temas.js"></script>
+<script src="js/dibujos.js"></script>
+<script src="js/datos.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

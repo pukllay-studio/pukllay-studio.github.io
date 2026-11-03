@@ -1,0 +1,314 @@
+{
+  "config": {
+    "marca": "Mi Tienda",
+    "moneda": "PEN",
+    "idioma": "es-PE",
+    "whatsapp": "51900000000",
+    "facebook": "",
+    "instagram": "",
+    "tiktok": "",
+    "tema": {
+      "logo": "",
+      "nombreConLogo": true,
+      "fondo": "#f4f4f2",
+      "papel": "#ffffff",
+      "placa": "#ecebe8",
+      "tinta": "#111111",
+      "suave": "#55524d",
+      "acento": "#111111",
+      "oscuro": "#151515",
+      "fuenteTitulos": "Archivo",
+      "fuenteTexto": "DM Sans"
+    },
+    "seo": {
+      "titulo": "Ropa y accesorios",
+      "descripcion": "Mi Tienda: ropa y accesorios con envío a todo el Perú. Pide por WhatsApp."
+    },
+    "anuncios": [
+      "Envíos a todo el Perú",
+      "Pides por WhatsApp y coordinamos el pago contigo"
+    ],
+    "hero": {
+      "titulo": "mi tienda",
+      "subtitulo": "Ropa y accesorios con envío a todo el Perú.",
+      "boton1": {
+        "texto": "Ver la tienda",
+        "destino": "?ver=tienda"
+      },
+      "boton2": {
+        "texto": "Ver accesorios",
+        "destino": "?ver=tienda&cat=accesorios"
+      },
+      "imagen": "",
+      "imagenAlt": "",
+      "datos": [
+        {
+          "etiqueta": "Envío",
+          "valor": "Todo el Perú"
+        },
+        {
+          "etiqueta": "Pago",
+          "valor": "Yape, Plin o transferencia"
+        },
+        {
+          "etiqueta": "Precios",
+          "valor": "Desde {precioMinimo}"
+        }
+      ]
+    },
+    "secciones": {
+      "vitrina": true,
+      "listaPrecios": true,
+      "vitrina3d": true,
+      "categorias": true,
+      "combo": false,
+      "comoComprar": true,
+      "preguntas": true,
+      "contacto": true
+    },
+    "vitrina": {
+      "titulo": "Elige modelo y color",
+      "productos": [],
+      "enlace": {
+        "texto": "Ver toda la tienda",
+        "destino": "?ver=tienda"
+      }
+    },
+    "listaPrecios": {
+      "titulo": "Lista de precios",
+      "nota": "Precios en soles. Coordinamos el envío por WhatsApp.",
+      "foto": "",
+      "fotoTexto": ""
+    },
+    "vitrina3d": {
+      "titulo": "Gira la vitrina",
+      "texto": "Arrastra para girar y toca un producto para verlo de cerca.",
+      "productos": []
+    },
+    "categorias": {
+      "titulo": "Compra por categoría",
+      "portadas": {}
+    },
+    "combo": {
+      "titulo": "Arma tu pack",
+      "intro": "Elige la talla una vez y suma las prendas del pack.",
+      "foto": "",
+      "fotoAlt": "",
+      "etiquetaTalla": "Talla",
+      "tallas": [
+        "S",
+        "M",
+        "L"
+      ],
+      "piezas": [],
+      "nota": "",
+      "notaEnlace": {
+        "texto": "",
+        "destino": "?ver=tienda"
+      }
+    },
+    "comoComprar": {
+      "titulo": "Así compras",
+      "filas": [
+        {
+          "titulo": "Eliges y pides",
+          "foto": "",
+          "puntos": [
+            "Elige producto, talla y color",
+            "Envías el pedido por WhatsApp con un toque"
+          ]
+        },
+        {
+          "titulo": "Confirmamos y pagas",
+          "foto": "",
+          "puntos": [
+            "Te confirmamos stock y envío",
+            "Pagas con Yape, Plin o transferencia"
+          ]
+        },
+        {
+          "titulo": "Te llega a casa",
+          "foto": "",
+          "puntos": [
+            "Enviamos a todo el Perú",
+            "Te avisamos cuando sale tu pedido"
+          ]
+        }
+      ]
+    },
+    "preguntas": {
+      "titulo": "Preguntas frecuentes",
+      "lista": [
+        {
+          "p": "¿Cuánto demora el envío?",
+          "r": "{envio}"
+        },
+        {
+          "p": "¿Cómo pago?",
+          "r": "{pago}"
+        },
+        {
+          "p": "¿Puedo cambiar un producto?",
+          "r": "{cambios}"
+        }
+      ]
+    },
+    "contacto": {
+      "frase": "Escríbenos por WhatsApp para pedir o resolver tus dudas.",
+      "pie": "Tienda en línea · Envíos a todo el Perú"
+    },
+    "pie": {
+      "foto": "",
+      "nota": "",
+      "creditos": {
+        "texto": "",
+        "url": ""
+      }
+    },
+    "mensajes": {
+      "consulta": "Hola {marca}, quiero hacer una consulta.",
+      "consultaProducto": "Hola {marca}, quiero consultar por: ",
+      "pedido": "Hola {marca}, quiero hacer este pedido"
+    },
+    "rangosPrecio": [
+      20,
+      50
+    ],
+    "envio": "Enviamos a todo el Perú. El plazo depende de tu ciudad y lo confirmamos por WhatsApp.",
+    "cambios": "Aceptamos cambios si el producto está en el mismo estado en que se entregó y con sus etiquetas.",
+    "pago": "Al confirmar tu pedido te escribimos por WhatsApp para coordinar el pago.",
+    "empresa": {
+      "razonSocial": "",
+      "ruc": "",
+      "direccion": "",
+      "correo": ""
+    },
+    "libroReclamacionesUrl": "",
+    "supabase": {
+      "url": "",
+      "anonKey": ""
+    }
+  },
+  "catalogo": {
+    "colores": {
+      "negro": "#1d1c1f",
+      "blanco": "#f7f5f0",
+      "gris": "#9a9a9a",
+      "azul": "#1f4fa8",
+      "beige": "#d9c7a8"
+    },
+    "categorias": [
+      {
+        "id": "ropa",
+        "nombre": "Ropa",
+        "visible": true,
+        "orden": 1,
+        "sub": [
+          {
+            "id": "polos",
+            "nombre": "Polos"
+          },
+          {
+            "id": "pantalones",
+            "nombre": "Pantalones"
+          }
+        ]
+      },
+      {
+        "id": "accesorios",
+        "nombre": "Accesorios",
+        "visible": true,
+        "orden": 2,
+        "sub": []
+      }
+    ],
+    "productos": [
+      {
+        "id": "polo-basico",
+        "sku": "P-POLO",
+        "nombre": "Polo básico",
+        "cat": "ropa",
+        "sub": "polos",
+        "dibujo": "",
+        "precio": 35,
+        "tallas": [
+          "S",
+          "M",
+          "L",
+          "XL"
+        ],
+        "publico": [],
+        "colores": [
+          "negro",
+          "blanco",
+          "gris"
+        ],
+        "stock": null,
+        "orden": 1,
+        "fotos": [],
+        "descripcion": "Polo de algodón. Reemplaza este texto y sube tus fotos desde el editor."
+      },
+      {
+        "id": "pantalon-jogger",
+        "sku": "P-JOGGER",
+        "nombre": "Pantalón jogger",
+        "cat": "ropa",
+        "sub": "pantalones",
+        "dibujo": "",
+        "precio": 69,
+        "tallas": [
+          "S",
+          "M",
+          "L"
+        ],
+        "publico": [],
+        "colores": [
+          "negro",
+          "gris"
+        ],
+        "stock": null,
+        "orden": 2,
+        "fotos": [],
+        "descripcion": "Pantalón jogger con bolsillos."
+      },
+      {
+        "id": "gorra",
+        "sku": "P-GORRA",
+        "nombre": "Gorra",
+        "cat": "accesorios",
+        "sub": "",
+        "dibujo": "",
+        "precio": 29,
+        "tallas": [],
+        "publico": [],
+        "colores": [
+          "negro",
+          "beige"
+        ],
+        "stock": null,
+        "orden": 3,
+        "fotos": [],
+        "descripcion": "Gorra ajustable."
+      },
+      {
+        "id": "tomatodo",
+        "sku": "P-TOMA",
+        "nombre": "Tomatodo",
+        "cat": "accesorios",
+        "sub": "",
+        "dibujo": "",
+        "precio": null,
+        "tallas": [],
+        "publico": [],
+        "colores": [
+          "azul",
+          "negro"
+        ],
+        "stock": null,
+        "orden": 4,
+        "fotos": [],
+        "descripcion": "Precio a consultar por WhatsApp."
+      }
+    ]
+  }
+}
