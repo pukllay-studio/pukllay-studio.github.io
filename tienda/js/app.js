@@ -27,6 +27,15 @@
   }
   function lista(v) { return Array.isArray(v) ? v : []; }
   function activa(sec) { return !CFG.secciones || CFG.secciones[sec] !== false; }
+  // Orden del cuerpo de inicio: editable; claves desconocidas se descartan y las que falten se agregan al final.
+  var ORDEN_BASE = ["comoComprar", "categorias", "carrusel", "combo", "promos", "vitrina3d", "preguntas", "contacto"];
+  function ordenSecciones() {
+    var o = []; lista(CFG.orden).concat(ORDEN_BASE).forEach(function (k) { if (ORDEN_BASE.indexOf(k) >= 0 && o.indexOf(k) < 0) o.push(k); });
+    return o;
+  }
+  function cuerpo(mapa) {
+    return ordenSecciones().map(function (k) { return mapa[k] && activa(k) ? mapa[k]() : ""; }).join("");
+  }
   function precio(p) { var v = p && typeof p === "object" ? p.precio : p; return v == null ? "Precio a consultar" : fmt.format(v); }
   function precioHtml(p) { return esc(precio(p)) + (p.precioAntes ? ' <s class="antes">' + esc(fmt.format(p.precioAntes)) + '</s> <span class="etiqueta">Oferta</span>' : ""); }
   function leer(k, def) { try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : def; } catch (e) { return def; } }
@@ -234,8 +243,7 @@
           "</div></section>" : "") +
         "</div>" +
       "</div>" +
-      (activa("vitrina3d") ? seccionVitrina3d() : "") + (activa("categorias") ? seccionCategorias() : "") + (activa("combo") ? seccionUniforme() : "") +
-      (activa("comoComprar") ? seccionComo() : "") + (activa("preguntas") ? seccionPreguntas() : "") + (activa("contacto") ? seccionContacto() : "");
+      cuerpo({ comoComprar: seccionComo, categorias: seccionCategorias, combo: seccionUniforme, vitrina3d: seccionVitrina3d, preguntas: seccionPreguntas, contacto: seccionContacto });
     if (conVitrina) {
       pintarVitrina();
       app.querySelectorAll("[data-vitrina]").forEach(function (b) {
@@ -1084,13 +1092,7 @@
       '<section class="banner" aria-labelledby="t-banner"><div class="banner__foto">' + foto + "</div>" +
         '<div class="banner__texto"><h1 id="t-banner"><span>' + esc(titular) + '</span></h1><p><span>' + esc(plantilla(h.subtitulo)) + "</span></p>" +
         '<div class="banner__botones">' + botonD(h.boton1) + botonD(h.boton2, true) + "</div></div></section>" +
-      (activa("comoComprar") ? seccionBeneficios() : "") +
-      (activa("carrusel") ? seccionCarrusel() : "") +
-      (activa("promos") ? seccionPromos() : "") +
-      (activa("categorias") ? seccionCategorias() : "") +
-      (activa("combo") ? seccionUniforme() : "") +
-      (activa("vitrina3d") ? seccionVitrina3d() : "") +
-      (activa("preguntas") ? seccionPreguntas() : "");
+      cuerpo({ comoComprar: seccionBeneficios, categorias: seccionCategorias, carrusel: seccionCarrusel, combo: seccionUniforme, promos: seccionPromos, vitrina3d: seccionVitrina3d, preguntas: seccionPreguntas });
     enlazarCarrusel(); enlazarFavs(app); enlazarUniforme(); enlazarVitrina3d();
   }
   function seccionBeneficios() {

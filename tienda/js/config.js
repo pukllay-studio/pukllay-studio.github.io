@@ -49,6 +49,8 @@ window.DA_CONFIG = {
   },
 
   // Secciones de la portada: true = se muestra
+  // Orden del cuerpo de la portada (de arriba hacia abajo). Se cambia en el editor.
+  orden: ["comoComprar", "categorias", "carrusel", "combo", "promos", "vitrina3d", "preguntas", "contacto"],
   secciones: { vitrina: true, listaPrecios: true, vitrina3d: true, categorias: true, combo: true, comoComprar: true, preguntas: true, contacto: true, carrusel: true, promos: true },
 
   // Estilo deportivo: carrusel de productos con pestañas por categoría
@@ -56,12 +58,12 @@ window.DA_CONFIG = {
 
   // Estilo deportivo: bloques destacados con foto (hasta 4)
   promos: {
-    titulo: "",
+    titulo: "Destacados",
     lista: [
-      { titulo: "Zapatillas de media punta", texto: "Lona, escarcha, plateadas y cuero. Tallas 24 a 40.", foto: "zapatilla-lona:rosado", enlace: { texto: "Comprar", destino: "?ver=tienda&cat=zapatillas" } },
+      { titulo: "Zapatillas de media punta", texto: "Lona, escarcha, plateadas y cuero. Tallas 24 a 40.", foto: "zapatilla-escarcha:celeste", enlace: { texto: "Comprar", destino: "?ver=tienda&cat=zapatillas" } },
       { titulo: "Faldas de tul", texto: "Varias capas, mucho movimiento. Desde S/ 15.", foto: "falda-tul:lila", enlace: { texto: "Comprar", destino: "?ver=producto&id=falda-tul" } },
       { titulo: "Bodies de gimnasia", texto: "Con brillo plateado. Tallas XS a M.", foto: "body-gimnasia:turquesa", enlace: { texto: "Comprar", destino: "?ver=producto&id=body-gimnasia" } },
-      { titulo: "Artes marciales", texto: "Uniformes de XS a XXG.", foto: "conjunto-deportivo", enlace: { texto: "Comprar", destino: "?ver=tienda&cat=karate" } }
+      { titulo: "Accesorios", texto: "Medias antideslizantes, protectores y adornos para el moño.", foto: "protector-metatarso", enlace: { texto: "Comprar", destino: "?ver=tienda&cat=accesorios" } }
     ]
   },
 

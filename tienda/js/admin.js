@@ -151,6 +151,33 @@
     return '<details class="ed-grupo"' + (abierto ? " open" : "") + "><summary>" + esc(titulo) + "</summary>" + ayuda(ayudaTxt) + '<div class="ed-grupo__cuerpo">' + contenido + "</div></details>";
   }
 
+  /* ---------- orden de la portada ---------- */
+  var NOMBRES_ORDEN = { comoComprar: "Así compras / beneficios", categorias: "Categorías", carrusel: "Carrusel", combo: "Arma tu combo",
+    promos: "Destacados", vitrina3d: "Vitrina que gira", preguntas: "Dudas comunes", contacto: "Contacto" };
+  var SOLO = { carrusel: "deportivo", promos: "deportivo", contacto: "editorial" };
+  function ordenCompleto() {
+    var o = [], base = Object.keys(NOMBRES_ORDEN);
+    (Array.isArray(B.config.orden) ? B.config.orden : []).concat(base).forEach(function (k) { if (base.indexOf(k) >= 0 && o.indexOf(k) < 0) o.push(k); });
+    return (B.config.orden = o);
+  }
+  function ordenVisible() {
+    var estilo = B.config.tema.estilo === "deportivo" ? "deportivo" : "editorial";
+    return ordenCompleto().filter(function (k) { return !SOLO[k] || SOLO[k] === estilo; });
+  }
+  function fOrden() {
+    var vis = ordenVisible();
+    return '<ol class="ed-orden">' + vis.map(function (k, i) {
+      var oculta = (B.config.secciones || {})[k] === false;
+      return '<li class="ed-orden__item' + (oculta ? " es-oculta" : "") + '"><span class="ed-orden__n">' + (i + 1) + '</span><span class="ed-orden__nombre">' + esc(NOMBRES_ORDEN[k]) + (oculta ? " <em>(oculta)</em>" : "") + "</span>" +
+        '<button type="button" data-orden="' + k + '" data-d="-1" aria-label="Subir ' + esc(NOMBRES_ORDEN[k]) + '"' + (i === 0 ? " disabled" : "") + ">↑</button>" +
+        '<button type="button" data-orden="' + k + '" data-d="1" aria-label="Bajar ' + esc(NOMBRES_ORDEN[k]) + '"' + (i === vis.length - 1 ? " disabled" : "") + ">↓</button></li>";
+    }).join("") + "</ol>";
+  }
+  function moverOrden(k, d) {
+    var vis = ordenVisible(), i = vis.indexOf(k), j = i + d; if (i < 0 || j < 0 || j >= vis.length) return;
+    var o = B.config.orden, a = o.indexOf(k), b = o.indexOf(vis[j]); o[a] = vis[j]; o[b] = k;
+  }
+
   /* ---------- secciones del editor ---------- */
   function pintarMenu() {
     document.getElementById("ed-menu").innerHTML = SECCIONES.map(function (s) {
@@ -221,6 +248,7 @@
         }, { max: 4 })) +
       grupo("Franja final", fTexto("franja.texto", "Frase", { multi: true, max: 120 }) + fTexto("franja.boton", "Botón de WhatsApp", { max: 30 }));
     return '<h1>Secciones de inicio</h1><p class="ed-ayuda">Activa solo lo que el negocio necesita. Cada sección se puede ocultar.' + (dep ? " En el diseño deportivo “Así compras” se muestra como franja de beneficios." : "") + "</p>" +
+      grupo("Orden de la portada", fOrden(), true, "De arriba hacia abajo, después de la portada. El pie de página siempre va al final.") +
       (dep ? gruposDep : "") +
       (dep ? "" : grupo("Elige modelo y color", fBool("secciones.vitrina", "Mostrar") + fTexto("vitrina.titulo", "Título") +
         fMarcas("vitrina.productos", "Productos (hasta 4)", productos().filter(function (p) { return p.colores.length; }).map(function (p) { return [p.id, p.nombre]; })) +
@@ -459,6 +487,7 @@
     if (d.quitarImagen) { set(B.config, d.quitarImagen, ""); cambio(rutaDeSeccion()); pintar(); return; }
     if (d.agregar) { arr = get(B.config, d.agregar) || []; arr.push(JSON.parse(d.nuevo)); set(B.config, d.agregar, arr); cambio(rutaDeSeccion()); pintar(); return; }
     if (d.borrar) { arr = get(B.config, d.borrar); arr.splice(+d.i, 1); cambio(rutaDeSeccion()); pintar(); return; }
+    if (d.orden) { moverOrden(d.orden, +d.d); cambio("?ver=inicio"); pintar(); return; }
     if (d.mover) { arr = get(B.config, d.mover); var i = +d.i, j = i + +d.d; if (j >= 0 && j < arr.length) { arr.splice(j, 0, arr.splice(i, 1)[0]); cambio(rutaDeSeccion()); pintar(); } return; }
     if (d.prod != null) { prodSel = +d.prod; pintar(); rutaPrevia = rutaDeSeccion(); enviarVista(true); return; }
     if (d.catsel != null) { catSel = +d.catsel; pintar(); rutaPrevia = rutaDeSeccion(); enviarVista(true); return; }

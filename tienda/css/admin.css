@@ -155,3 +155,12 @@ h3 { font-size: .95rem; margin: 24px 0 10px; }
   .ed-colores { grid-template-columns: 1fr; }
   .ed-panel { padding: 18px 16px 80px; }
 }
+
+/* orden de la portada */
+.ed-orden { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.ed-orden__item { display: grid; grid-template-columns: 28px 1fr 36px 36px; align-items: center; gap: 6px; padding: 6px 6px 6px 10px; border: 1px solid var(--e-linea); border-radius: 6px; background: var(--e-suave); }
+.ed-orden__item.es-oculta .ed-orden__nombre { opacity: .55; }
+.ed-orden__n { font-variant-numeric: tabular-nums; font-weight: 600; opacity: .6; }
+.ed-orden__nombre em { font-style: normal; font-size: .85em; }
+.ed-orden__item button { min-height: 36px; border: 1px solid var(--e-linea); border-radius: 4px; background: #fff; cursor: pointer; font: inherit; }
+.ed-orden__item button:disabled { opacity: .35; cursor: default; }
